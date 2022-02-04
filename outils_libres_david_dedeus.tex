@@ -42,6 +42,57 @@
 
 \chapter{SSH}
 
+\section{TP 1}
+Pour se connecter sans utiliser \textbf{vagrant ssh}, les commandes à utilisés sont : 
+\textbf{ssh alice@10.0.0.3}
+\textbf{ssh bob@10.0.0.3}
+\textbf{ssh carol@10.0.0.3}
+
+On est bien pas en local, car ce n'est pas l'addresse IP du poste local.
+
+\section{TP 2}
+\subsection{génération des clés ssh}
+\textbf{debiandav@david \% ssh-keygen}
+
+\subsection{copie des clés ssh}
+\textbf{debiandav@david \% sudo ssh-copy ~/.ssh/id_rsa.pub alice@cli}
+\textbf{debiandav@david \% sudo ~/.ssh/id_rsa bob@10.0.0.3:./cle.txt}
+\textbf{debiandav@david \% ssh bob@10.0.0.3}
+\textbf{bob@srv:~$ mkdir .ssh}
+\textbf{bob@srv:~$ cat cle.txt > ~/.ssh/authorized_keys}
+
+\subsection{définition d'une passphrase}
+C'est une phrase pour s'authentifié lors d'une connction en ssh, 
+elle permet ainsi de protéger la clé publique.
+
+\section{TP 3}
+\textbf{ssh-keyscan -H 10.0.0.3 > /home/david/.ssh/known_hosts}
+
+\subsection{fichier config}
+\textbf{touch .ssh/config}
+\textbf{sudo chmod 600 .ssh/config}
+\textbf{nano .ssh/config}
+\textit{Host bs
+Hostname 10.0.0.3
+Port 22
+User bob}
+La commande \textbf{ssh bc} fonctionne bien.
+
+\subsection{SFTP}
+\textbf{debiandav@david ~ \% sftp alice@10.0.0.3}
+\textbf{sftp> put /home/david/outils_libres/vagrant/README.md}
+\textbf{sftp> get /home/bob/cle.pub}
+\textbf{sftp> exit} 
+
+\subsection{SSHFS}
+\textbf{mkdir /tmp/alice_srv}
+J'ai mit le fichier à modifier dans ce dossier.
+\textbf{debiandav@david ~ \% sshfs alice@10.0.0.3:/home/alice /tmp/alice_srv}
+\textbf{debiandav@david ~ \% subl /tmp/alice_srv/README.md}
+Avec sublimetext , j'ai effacé tout le contenue en mettant "john".
+Ensuite on vérifie en se connectant avec alice.
+\textbf{alice@srv:~$ cat README.md
+john}
 
 \chapter{GIT}
 
@@ -65,8 +116,30 @@ Date:   Fri Feb 4 15:46:07 2022 +0100 ajout des vagrantfiles}
 \section{TP 2}
 le \textbf{working directory} fonctionne bien mais il n'a pas changé.
 
-\section{TP 3}
 la branche crée existe toujours mais on peut la supprimer à l'aide de la commande 
 \textbf{git branch -d nom-de-la-branche}
+
+\section{TP 3}
+il y a un conflit entre les branches.
+\subsection{log final}
+\textit{commit d4c33bd6503f98ec1ba2a28adad6428b2ecd660b (HEAD -> forward-new-port)
+Author: Skoneek3r <david.dedeus@free.fr>
+Date:   Fri Feb 4 16:39:56 2022 +0100
+
+            modifié :         outils_libres_david_dedeus.tex
+            modifié :         vagrant/Vagrantfile
+
+commit 39b9d8d20057f05c82f4fe274321c3c8d3c1ccd3
+Author: Skoneek3r <david.dedeus@free.fr>
+Date:   Fri Feb 4 16:34:45 2022 +0100
+
+    8081 pour srv
+
+commit 0b7a33a2e6f7c228dceb08d0eb079476ee5a6f26 (vagrant, master)
+Author: Skoneek3r <david.dedeus@free.fr>
+Date:   Fri Feb 4 15:46:07 2022 +0100
+
+    ajout des vagrantfiles}
+
 
 \end{document}
