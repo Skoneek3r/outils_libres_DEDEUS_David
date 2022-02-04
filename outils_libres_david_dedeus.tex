@@ -43,56 +43,68 @@
 \chapter{SSH}
 
 \section{TP 1}
-Pour se connecter sans utiliser \textbf{vagrant ssh}, les commandes à utilisés sont : 
-\textbf{ssh alice@10.0.0.3}
-\textbf{ssh bob@10.0.0.3}
-\textbf{ssh carol@10.0.0.3}
+\\
+Pour se connecter sans utiliser \textbf{vagrant ssh}, les commandes à utilisés sont : \\
+\textbf{ssh alice@10.0.0.3} \\
+\textbf{ssh bob@10.0.0.3} \\
+\textbf{ssh carol@10.0.0.3} \\
 
-On est bien pas en local, car ce n'est pas l'addresse IP du poste local.
+On est pas en local, car ce n'est pas l'addresse IP du poste local.
 
 \section{TP 2}
 \subsection{génération des clés ssh}
-\textbf{debiandav@david \% ssh-keygen}
+\textbf{debiandav@david \% ssh-keygen} \\
 
 \subsection{copie des clés ssh}
-\textbf{debiandav@david \% sudo ssh-copy ~/.ssh/id_rsa.pub alice@cli}
-\textbf{debiandav@david \% sudo ~/.ssh/id_rsa bob@10.0.0.3:./cle.txt}
-\textbf{debiandav@david \% ssh bob@10.0.0.3}
-\textbf{bob@srv:~$ mkdir .ssh}
-\textbf{bob@srv:~$ cat cle.txt > ~/.ssh/authorized_keys}
+\\ 
+\textbf{debiandav@david \% sudo ssh-copy ~/.ssh/id\_rsa.pub} \\
+\textbf{debiandav@david \% sudo ~/.ssh/id\_rsa bob@10.0.0.3:\./cle.txt} \\ 
+\textbf{debiandav@david \% ssh bob@10.0.0.3} \\
+\\
+\textbf{bob@srv:~\$ mkdir .ssh} \\
+\textbf{bob@srv:~\$ cat cle.txt \> ~/.ssh/authorized\_keys} \\
 
 \subsection{définition d'une passphrase}
-C'est une phrase pour s'authentifié lors d'une connction en ssh, 
+C'est une phrase pour s'authentifié lors d'une connexion en ssh, 
 elle permet ainsi de protéger la clé publique.
 
 \section{TP 3}
-\textbf{ssh-keyscan -H 10.0.0.3 > /home/david/.ssh/known_hosts}
+\textbf{ssh-keyscan -H 10.0.0.3 \> /home/david/.ssh/known\_hosts} \\
 
 \subsection{fichier config}
-\textbf{touch .ssh/config}
-\textbf{sudo chmod 600 .ssh/config}
-\textbf{nano .ssh/config}
-\textit{Host bs
-Hostname 10.0.0.3
-Port 22
-User bob}
+\\
+\textbf{touch .ssh/config} \\ 
+\textbf{sudo chmod 600 .ssh/config} \\
+\textbf{nano .ssh/config} \\
+\\
+\textit{Host bs} \\
+\textit{Hostname 10.0.0.3} \\
+\textit{Port 22} \\
+\textit{User bob} \\
+\\
 La commande \textbf{ssh bc} fonctionne bien.
 
 \subsection{SFTP}
-\textbf{debiandav@david ~ \% sftp alice@10.0.0.3}
-\textbf{sftp> put /home/david/outils_libres/vagrant/README.md}
-\textbf{sftp> get /home/bob/cle.pub}
-\textbf{sftp> exit} 
+\\
+\textbf{debiandav@david ~ \% sftp alice@10.0.0.3} \\
+\textbf{sftp\> put /home/david/outils\_libres/vagrant/README.md} \\
+\textbf{sftp\> get /home/bob/cle.pub} \\
+\textbf{sftp\> exit} \\
 
 \subsection{SSHFS}
-\textbf{mkdir /tmp/alice_srv}
-J'ai mit le fichier à modifier dans ce dossier.
-\textbf{debiandav@david ~ \% sshfs alice@10.0.0.3:/home/alice /tmp/alice_srv}
-\textbf{debiandav@david ~ \% subl /tmp/alice_srv/README.md}
-Avec sublimetext , j'ai effacé tout le contenue en mettant "john".
-Ensuite on vérifie en se connectant avec alice.
-\textbf{alice@srv:~$ cat README.md
-john}
+\\
+\textbf{mkdir /tmp/alice\_srv} \\
+\\
+J'ai mit le fichier à modifier dans ce dossier. \\
+\\
+\textbf{debiandav@david ~ \% sshfs alice@10.0.0.3:/home/alice /tmp/alice\_srv} \\
+\textbf{debiandav@david ~ \% subl /tmp/alice\_srv/README.md} \\
+\\
+Avec sublimetext , j'ai effacé tout le contenue en mettant "john". \\
+Ensuite on vérifie en se connectant avec alice. \\
+\\
+\textbf{alice@srv:\~\$ cat README.md} \\
+\textit{john} \\
 
 \chapter{GIT}
 
