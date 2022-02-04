@@ -1,0 +1,65 @@
+\documentclass{report}
+
+\usepackage[utf8]{inputenc}
+\usepackage[0T1]{inputenc}
+
+\usepackage[french]{babel}
+
+\begin{document}
+
+\chapter{Efficacité}
+\section{TP 1}
+ 
+\subsection{raccourci clavier}
+\begin{tabular}{|c|c|c|}
+	\hline
+	\textbf{Priorité} &  \textbf{Problème} & \textbf{Correctif} \\ 
+	\hline
+	1 & Logout & \textsc{ctrl + alt + del} \\
+	\hline
+	2 & Verrouiler la session & \textsc{win + l} \\
+	\hline  
+	3 & Fermer un ongler & \textsc{ctrl-w} \\
+	\hline
+	4 & Changer d'onglet & \textsc{ctrl + tab}  \\
+	\hline
+	5 & Suivant ou précédent & \textsc{alt + < ou alt + >} \\
+	\hline 
+	6 & Ouvrir un nouvel onglet & \textsc{ctrl + t} \\
+	\hline
+	7 & Ouvrir une nouvelle instance & \textsc{ctrl + n} \\
+	\hline 
+	8 & Changer de console & \textsc{ctrl + alt + n°console} \\
+	\hline 
+	9 & Debut de ligne & \textsc{ctrl + a} \\
+	\hline 
+	10 & Fin de ligne & \textsc{ctrl + e} \\
+	\hline 
+	11 & Clear le terminal & \textsc{ctrl + l} \\
+	\hline 
+\end{tabular}
+
+
+\chapter{SSH}
+
+
+\chapter{GIT}
+
+\section{TP 1}
+on remarque que les fichiers ne sont pas ajoutés au repository donc pour régler le problème 
+on commit les modifications apportés.
+
+\subsection{ajout des vagrant files}
+\textbf{git commit -m "ajout des vagrantfiles"
+[master (commit racine) 0b7a33a] ajout des vagrantfiles
+ 3 files changed, 70 insertions(+)
+ create mode 100644 vagrant/Vagrantfile
+ create mode 100755 vagrant/srv/test1.cgi
+ create mode 100755 vagrant/srv/test2.cgi}
+
+\subsection{log commit}
+\textbf{git log commit 0b7a33a2e6f7c228dceb08d0eb079476ee5a6f26 (HEAD -> master)
+Author: Skoneek3r <david.dedeus@free.fr>
+Date:   Fri Feb 4 15:46:07 2022 +0100 ajout des vagrantfiles}
+
+\end{document}
