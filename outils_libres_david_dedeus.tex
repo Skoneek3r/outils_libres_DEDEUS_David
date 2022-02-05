@@ -2,24 +2,28 @@
 
 \usepackage[utf8]{inputenc}
 \usepackage[0T1]{inputenc}
-
+\usepackage{fancyhdr}
 \usepackage[french]{babel}
 
-\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{David de Deus}
+\fancyhead[C]{Compte rendu TP outils libres côtés client}
+\fancyhead[R]{\today}
 
+\begin{document}
 \chapter{Efficacité}
 \section{TP 1}
  
 \subsection{raccourci clavier}
 \begin{tabular}{|c|c|c|}
 	\hline
-	\textbf{Priorité} &  \textbf{Problème} & \textbf{Correctif} \\ 
+	\textbf{Numéros} &  \textbf{Problème} & \textbf{Correctif} \\ 
 	\hline
 	1 & Logout & \textsc{ctrl + alt + del} \\
 	\hline
 	2 & Verrouiler la session & \textsc{win + l} \\
 	\hline  
-	3 & Fermer un ongler & \textsc{ctrl-w} \\
+	3 & Fermer un onglet & \textsc{ctrl-w} \\
 	\hline
 	4 & Changer d'onglet & \textsc{ctrl + tab}  \\
 	\hline
@@ -45,67 +49,111 @@
 \section{TP 1}
 \\
 Pour se connecter sans utiliser \textbf{vagrant ssh}, les commandes à utilisés sont : \\
-\textbf{ssh alice@10.0.0.3} \\
-\textbf{ssh bob@10.0.0.3} \\
-\textbf{ssh carol@10.0.0.3} \\
-
+\\
+\begin{tabular}{|c|}
+\hline
+\textit{ssh alice@10.0.0.3} \\
+\textit{ssh bob@10.0.0.3} \\
+\textit{ssh carol@10.0.0.3} \\
+\hline
+\end{tabular}
+\\
+\\
 On est pas en local, car ce n'est pas l'addresse IP du poste local.
 
 \section{TP 2}
 \subsection{génération des clés ssh}
-\textbf{debiandav@david \% ssh-keygen} \\
-
-\subsection{copie des clés ssh}
-\\ 
-\textbf{debiandav@david \% sudo ssh-copy ~/.ssh/id\_rsa.pub} \\
-\textbf{debiandav@david \% sudo ~/.ssh/id\_rsa bob@10.0.0.3:\./cle.txt} \\ 
-\textbf{debiandav@david \% ssh bob@10.0.0.3} \\
 \\
-\textbf{bob@srv:~\$ mkdir .ssh} \\
-\textbf{bob@srv:~\$ cat cle.txt \> ~/.ssh/authorized\_keys} \\
+\begin{tabular}{|c|}
+\hline
+\textit{debiandav@david \% ssh-keygen} \\
+\hline
+\end{tabular}
+\\
+\subsection{copie des clés ssh}
+\\
+\begin{tabular}{|c|}
+\hline 
+\textit{debiandav@david \% sudo ssh-copy ~/.ssh/id\_rsa.pub} \\
+\textit{debiandav@david \% sudo ~/.ssh/id\_rsa bob@10.0.0.3:\./cle.txt} \\ 
+\textit{debiandav@david \% ssh bob@10.0.0.3} \\
+\hline
+\textit{bob@srv:~\$ mkdir .ssh} \\
+\textit{bob@srv:~\$ cat cle.txt \> ~/.ssh/authorized\_keys} \\
+\hline
+\end{tabular}
+\\
 
 \subsection{définition d'une passphrase}
 C'est une phrase pour s'authentifié lors d'une connexion en ssh, 
 elle permet ainsi de protéger la clé publique.
 
 \section{TP 3}
-\textbf{ssh-keyscan -H 10.0.0.3 \> /home/david/.ssh/known\_hosts} \\
-
+\\
+\begin{tabular}{|c|}
+\hline
+\textit{ssh-keyscan -H 10.0.0.3 \> /home/david/.ssh/known\_hosts} \\
+\hline
+\end{tabular}
+\\
 \subsection{fichier config}
 \\
-\textbf{touch .ssh/config} \\ 
-\textbf{sudo chmod 600 .ssh/config} \\
-\textbf{nano .ssh/config} \\
-\\
+\begin{tabular}{|c|}
+\hline
+\textit{touch .ssh/config} \\ 
+\textit{sudo chmod 600 .ssh/config} \\
+\textit{nano .ssh/config} \\
+\hline
 \textit{Host bs} \\
 \textit{Hostname 10.0.0.3} \\
 \textit{Port 22} \\
 \textit{User bob} \\
+\hline
+\end{tabular}
+\\
 \\
 La commande \textbf{ssh bc} fonctionne bien.
 
 \subsection{SFTP}
 \\
-\textbf{debiandav@david ~ \% sftp alice@10.0.0.3} \\
-\textbf{sftp\> put /home/david/outils\_libres/vagrant/README.md} \\
-\textbf{sftp\> get /home/bob/cle.pub} \\
-\textbf{sftp\> exit} \\
-
+\begin{tabular}{|c|}
+\hline
+\textit{debiandav@david ~ \% sftp alice@10.0.0.3} \\
+\textit{sftp\> put /home/david/outils\_libres/vagrant/README.md} \\
+\textit{sftp\> get /home/bob/cle.pub} \\
+\textit{sftp\> exit} \\
+\hline
+\end{tabular}
+\\
 \subsection{SSHFS}
 \\
-\textbf{mkdir /tmp/alice\_srv} \\
+\begin{tabular}{|c|}
+\hline
+\textit{mkdir /tmp/alice\_srv} \\
+\hline
+\end{tabular}
+\\
 \\
 J'ai mit le fichier à modifier dans ce dossier. \\
 \\
-\textbf{debiandav@david ~ \% sshfs alice@10.0.0.3:/home/alice /tmp/alice\_srv} \\
-\textbf{debiandav@david ~ \% subl /tmp/alice\_srv/README.md} \\
+\begin{tabular}{|c|}
+\hline
+\textit{debiandav@david ~ \% sshfs alice@10.0.0.3:/home/alice /tmp/alice\_srv} \\
+\textit{debiandav@david ~ \% subl /tmp/alice\_srv/README.md} \\
+\hline
+\end{tabular}
+\\
 \\
 Avec sublimetext , j'ai effacé tout le contenue en mettant "john". \\
 Ensuite on vérifie en se connectant avec alice. \\
 \\
-\textbf{alice@srv:\~\$ cat README.md} \\
+\begin{tabular}{|c|}
+\hline
+\textit{alice@srv:\~\$ cat README.md} \\
 \textit{john} \\
-
+\hline
+\end{tabular}
+\\
 \chapter{GIT}
 
 \section{TP 1}
@@ -113,18 +161,28 @@ on remarque que les fichiers ne sont pas ajoutés au repository donc pour régle
 on commit les modifications apportés.
 
 \subsection{ajout des vagrant files}
-\textit{git commit -m "ajout des vagrantfiles"
-[master (commit racine) 0b7a33a] ajout des vagrantfiles
- 3 files changed, 70 insertions(+)
- create mode 100644 vagrant/Vagrantfile
- create mode 100755 vagrant/srv/test1.cgi
- create mode 100755 vagrant/srv/test2.cgi}
-
+\\
+\begin{tabular}{|c|}
+\hline
+\textit{git commit -m "ajout des vagrantfiles"}\\
+\textit{[master (commit racine) 0b7a33a] ajout des vagrantfiles} \\
+\textit{ 3 files changed, 70 insertions(+)} \\
+\textit{ create mode 100644 vagrant/Vagrantfile}\\
+\textit{ create mode 100755 vagrant/srv/test1.cgi}\\
+\textit{ create mode 100755 vagrant/srv/test2.cgi}\\
+\hline
+\end{tabular}
+\\
 \subsection{log commit}
-\textit{git log commit 0b7a33a2e6f7c228dceb08d0eb079476ee5a6f26 (HEAD -> master)
-Author: Skoneek3r <david.dedeus@free.fr>
-Date:   Fri Feb 4 15:46:07 2022 +0100 ajout des vagrantfiles}
-
+\\
+\begin{tabular}{|c|}
+\hline
+\textit{git log commit 0b7a33a2e6f7c228dceb08d0eb079476ee5a6f26 (HEAD -> master)}\\
+\textit{Author: Skoneek3r <david.dedeus@free.fr>}\\
+\textit{Date:   Fri Feb 4 15:46:07 2022 +0100 ajout des vagrantfiles}\\
+\hline
+\end{tabular}
+\\
 \section{TP 2}
 le \textbf{working directory} fonctionne bien mais il n'a pas changé.
 
@@ -134,24 +192,24 @@ la branche crée existe toujours mais on peut la supprimer à l'aide de la comma
 \section{TP 3}
 il y a un conflit entre les branches.
 \subsection{log final}
-\textit{commit d4c33bd6503f98ec1ba2a28adad6428b2ecd660b (HEAD -> forward-new-port)
-Author: Skoneek3r <david.dedeus@free.fr>
-Date:   Fri Feb 4 16:39:56 2022 +0100
-
-            modifié :         outils_libres_david_dedeus.tex
-            modifié :         vagrant/Vagrantfile
-
-commit 39b9d8d20057f05c82f4fe274321c3c8d3c1ccd3
-Author: Skoneek3r <david.dedeus@free.fr>
-Date:   Fri Feb 4 16:34:45 2022 +0100
-
-    8081 pour srv
-
-commit 0b7a33a2e6f7c228dceb08d0eb079476ee5a6f26 (vagrant, master)
-Author: Skoneek3r <david.dedeus@free.fr>
-Date:   Fri Feb 4 15:46:07 2022 +0100
-
-    ajout des vagrantfiles}
-
+\\
+\begin{tabular}{|c|}
+\hline
+\textit{commit d4c33bd6503f98ec1ba2a28adad6428b2ecd660b (HEAD -> forward-new-port)}\\
+\textit{Author: Skoneek3r <david.dedeus@free.fr>}\\
+\textit{Date:   Fri Feb 4 16:39:56 2022 +0100}\\
+\textit{modifié: outils\_libres\_david\_dedeus.tex}\\
+\textit{modifié: vagrant/Vagrantfile}\\
+\textit{commit 39b9d8d20057f05c82f4fe274321c3c8d3c1ccd3}\\
+\textit{Author: Skoneek3r <david.dedeus@free.fr>}\\
+\textit{Date:   Fri Feb 4 16:34:45 2022 +0100}\\
+\textit{ 8081 pour srv}\\
+\textit{commit 0b7a33a2e6f7c228dceb08d0eb079476ee5a6f26 (vagrant, master)}\\
+\textit{Author: Skoneek3r <david.dedeus@free.fr>}\\
+\textit{Date:   Fri Feb 4 15:46:07 2022 +0100}\\
+\textit{    ajout des vagrantfiles}\\
+\hline
+\end{tabular}
+\\
 
 \end{document}
