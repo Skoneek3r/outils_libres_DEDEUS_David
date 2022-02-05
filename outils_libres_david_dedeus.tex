@@ -4,7 +4,8 @@
 \usepackage[0T1]{inputenc}
 \usepackage{fancyhdr}
 \usepackage[french]{babel}
-
+\usepackage{graphicx}
+\graphicspath{ { /home/david/outils-libres/ } } 
 \pagestyle{fancy}
 \fancyhead[L]{David de Deus}
 \fancyhead[C]{Compte rendu TP outils libres côtés client}
@@ -43,7 +44,58 @@
 	\hline 
 \end{tabular}
 
-
+\section{TP 2}
+J'ai utilisé le site arckade.fr car il est assez intuitif, on peut aussi
+chercher à s'amélioré grâce aux statistique qui sont plutôt bien détaillé.
+\\
+\\
+L'interface du site :  
+\includegraphics{arckade}
+\\
+\\
+Les statistiques à la fin de chaque test : 
+\includegraphics{stats} 
+\\
+\\
+\section{TP 4}
+On peut voir quelques informations sensibles et on pourrais y rémédier en 
+masquant ceci dans l'\textbf{history}.
+\\
+Ses anciens \textbf{history} peuvent être autre part ou l'employé à 
+changé de shell. 
+\\
+On peut masquer les diffèrentes commandes.
+\\
+\section{TP 5}
+\\
+\begin{tabular}{|c|c|}
+\hline
+\textbf{script mkcd} & \textbf{script gitemergency}\\
+\hline
+\textit{function mkcd() mkdir -p "\$1" \&\& cd "\$1";} & 
+\textit{function gitemergency () git add "\$1" \&\&}\\
+\textit{alias mkcd="mkcd"} & \textit{git commit "\$1" \&\&} \\
+& \textit{git push "\$1" "\$2"}\\
+\hline
+\end{tabular}
+\\ 
+\\
+\section{TP 6}
+\begin{tabular}{|c|}
+\hline
+\textit{complete -W "now, tonight, tomorrow" backup.sh}\\
+\textit{complete -A directory backup.sh}\\
+\textit{complete -A HOME.directory backup.sh}\\
+\hline
+\end{tabular}
+\section{TP 9}
+\\
+J'ai testé les terminaux Terminator, Sakura et Kitty. 
+\\
+Ensuite, j'ai choisi Terminator pour sa fonction de redimensionnement qui
+est plutôt bien intuitive, sa rapidité est correcte et quand on a plusieurs 
+onglets actifs, c'est ergonomique.   
+\\
 \chapter{SSH}
 
 \section{TP 1}
@@ -154,6 +206,57 @@ Ensuite on vérifie en se connectant avec alice. \\
 \hline
 \end{tabular}
 \\
+\section{TP 4}
+\\
+\begin{tabular}{|c|}
+\hline
+\textit{carol@cli:~\$ ssh -R 1080:10.0.0.3:8000 10.0.0.2}\\
+\textit{carol@cli:~\$ ssh -L 1080:10.0.0.3:8000 10.0.0.2}\\
+\hline
+\end{tabular}
+\\
+\section{TP 5}
+\\
+\begin{tabular}{|c|}
+\hline
+\textit{}\\
+\end{tabular}
+\\
+\section{TP 6}
+\\
+\begin{tabular}{|c|}
+\hline
+\textit{carol@cli:~\$ apt install x11-app}\\
+\textit{carol@cli:~\$ apt install xauth}\\
+\textit{debiandav@david ~ \% ssh -X carol@10.0.0.2}\\
+\textit{carol@cli:~\$ xeyes}\\
+\hline
+\end{tabular}
+\\
+\\
+Le xeyes s'affiche bien. 
+\\
+\\
+\includegraphics{xeyes}
+\\
+\\
+\section{TP 7}
+\begin{tabular}{|c|c|}
+\hline
+\textbf{ProxyJump} & \textbf{ProxyCommand} \\
+\hline 
+\textit{Host bastion} & \texit{Host bastion}\\
+\textit{Hostname 10.0.0.3} & \textit{Hostname 10.0.0.2}\\
+\textit{User bob} & \textit{User bob}\\
+\hline
+\textit{Host srv} & \textit{Host srvcmd}\\
+\textit{Hostname 10.0.0.3} & \textit{Hostname 10.0.0.3}\\
+\textit{User bob} & \textit{User bob}\\
+\textit{ProxyJump bastion} & \texit{ProxyCommand ssh bastion -W \%h:\%p}\\
+\hline
+\end{tabular}
+\\
+   
 \chapter{GIT}
 
 \section{TP 1}
