@@ -215,8 +215,7 @@ Ensuite on vérifie en se connectant avec alice. \\
 \\
 \begin{tabular}{|c|}
 \hline
-\textit{carol@cli:~\$ ssh -R 1080:10.0.0.3:8000 10.0.0.2}\\
-\textit{carol@cli:~\$ ssh -L 1080:10.0.0.3:8000 10.0.0.2}\\
+\textit{carol@cli:~\$ ssh -L 8000:srv.local:80 carol@cli.local}\\
 \hline
 \end{tabular}
 \\
@@ -224,8 +223,12 @@ Ensuite on vérifie en se connectant avec alice. \\
 \\
 \begin{tabular}{|c|}
 \hline
-\textit{}\\
+\textit{ssh -D 9000 carol@cli.local}\\
+\textit{tsocks -on}\\
+\textit{tsocks firefox}\\
+\hline
 \end{tabular}
+\\
 \\
 \section{TP 6}
 \\
