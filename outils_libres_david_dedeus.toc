@@ -1,0 +1,21 @@
+\babel@toc {french}{}
+\contentsline {chapter}{\numberline {1}Efficacité}{2}{}%
+\contentsline {section}{\numberline {1.1}TP 1}{2}{}%
+\contentsline {subsection}{\numberline {1.1.1}raccourci clavier}{2}{}%
+\contentsline {chapter}{\numberline {2}SSH}{3}{}%
+\contentsline {section}{\numberline {2.1}TP 1}{3}{}%
+\contentsline {section}{\numberline {2.2}TP 2}{3}{}%
+\contentsline {subsection}{\numberline {2.2.1}génération des clés ssh}{3}{}%
+\contentsline {subsection}{\numberline {2.2.2}copie des clés ssh}{3}{}%
+\contentsline {subsection}{\numberline {2.2.3}définition d'une passphrase}{3}{}%
+\contentsline {section}{\numberline {2.3}TP 3}{4}{}%
+\contentsline {subsection}{\numberline {2.3.1}fichier config}{4}{}%
+\contentsline {subsection}{\numberline {2.3.2}SFTP}{4}{}%
+\contentsline {subsection}{\numberline {2.3.3}SSHFS}{4}{}%
+\contentsline {chapter}{\numberline {3}GIT}{5}{}%
+\contentsline {section}{\numberline {3.1}TP 1}{5}{}%
+\contentsline {subsection}{\numberline {3.1.1}ajout des vagrant files}{5}{}%
+\contentsline {subsection}{\numberline {3.1.2}log commit}{5}{}%
+\contentsline {section}{\numberline {3.2}TP 2}{5}{}%
+\contentsline {section}{\numberline {3.3}TP 3}{5}{}%
+\contentsline {subsection}{\numberline {3.3.1}log final}{6}{}%
