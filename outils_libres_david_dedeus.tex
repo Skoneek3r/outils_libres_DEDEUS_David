@@ -50,16 +50,16 @@ chercher à s'amélioré grâce aux statistique qui sont plutôt bien détaillé
 \\
 \\
 \newpage
-L'interface du site :
+\textbf{L'interface du site :}
 \\
 \\  
-\includegraphics{arckade}
+\includegraphics[height=8cm]{arckade}
 \\
 \\
-Les statistiques à la fin de chaque test :
+\textbf{Les statistiques à la fin de chaque test :}
 \\
 \\ 
-\includegraphics{stats} 
+\includegraphics[height=8cm]{stats} 
 \\
 \newpage
 \section{TP 4}
@@ -123,7 +123,7 @@ On est pas en local, car ce n'est pas l'addresse IP du poste local.
 \\
 \begin{tabular}{|c|}
 \hline
-\textit{debiandav@david \% ssh-keygen} \\
+\textit{david@debiandav \% ssh-keygen} \\
 \hline
 \end{tabular}
 \\
@@ -131,9 +131,9 @@ On est pas en local, car ce n'est pas l'addresse IP du poste local.
 \\
 \begin{tabular}{|c|}
 \hline 
-\textit{debiandav@david \% sudo ssh-copy ~/.ssh/id\_rsa.pub} \\
-\textit{debiandav@david \% sudo ~/.ssh/id\_rsa bob@10.0.0.3:\./cle.txt} \\ 
-\textit{debiandav@david \% ssh bob@10.0.0.3} \\
+\textit{david@debiandav \% sudo ssh-copy ~/.ssh/id\_rsa.pub} \\
+\textit{david@debiandav \% sudo ~/.ssh/id\_rsa bob@10.0.0.3:\./cle.txt} \\ 
+\textit{david@debiandav \% ssh bob@10.0.0.3} \\
 \hline
 \textit{bob@srv:~\$ mkdir .ssh} \\
 \textit{bob@srv:~\$ cat cle.txt \> ~/.ssh/authorized\_keys} \\
@@ -175,7 +175,7 @@ La commande \textbf{ssh bc} fonctionne bien.
 \\
 \begin{tabular}{|c|}
 \hline
-\textit{debiandav@david ~ \% sftp alice@10.0.0.3} \\
+\textit{david@debiandav ~ \% sftp alice@10.0.0.3} \\
 \textit{sftp\> put /home/david/outils\_libres/vagrant/README.md} \\
 \textit{sftp\> get /home/bob/cle.pub} \\
 \textit{sftp\> exit} \\
@@ -195,8 +195,8 @@ J'ai mit le fichier à modifier dans ce dossier. \\
 \\
 \begin{tabular}{|c|}
 \hline
-\textit{debiandav@david ~ \% sshfs alice@10.0.0.3:/home/alice /tmp/alice\_srv} \\
-\textit{debiandav@david ~ \% subl /tmp/alice\_srv/README.md} \\
+\textit{david@debiandav ~ \% sshfs alice@10.0.0.3:/home/alice /tmp/alice\_srv} \\
+\textit{daivd@debiandav ~ \% subl /tmp/alice\_srv/README.md} \\
 \hline
 \end{tabular}
 \\
@@ -236,7 +236,7 @@ Ensuite on vérifie en se connectant avec alice. \\
 \hline
 \textit{carol@cli:~\$ apt install x11-app}\\
 \textit{carol@cli:~\$ apt install xauth}\\
-\textit{debiandav@david ~ \% ssh -X carol@10.0.0.2}\\
+\textit{david@debiandav ~ \% ssh -X carol@10.0.0.2}\\
 \textit{carol@cli:~\$ xeyes}\\
 \hline
 \end{tabular}
